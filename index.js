@@ -2,6 +2,15 @@ const express = require('express');
 const routes = require('./routes');
 const path = require('path'); // para leer el file system
 
+// Conexion a la BD
+const db = require('./config/db');
+
+// Importo el modelo
+require('./models/Proyectos');
+
+db.sync()
+    .then(() => console.log("Conectado a la BD"))
+    .catch(error => console.log(error))
 
 // Crear una "aplicacion" de express
 const app = express();
