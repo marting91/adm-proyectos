@@ -75,7 +75,7 @@ body {
     background-color: #FDD835;
     text-align: center;
     transition: background-color .5s ease-in-out;
-    padding: 2rem;
+    padding: 2rem 1rem 2rem 2rem;
     text-transform: uppercase;
     border: none;
     font-weight: 900;
