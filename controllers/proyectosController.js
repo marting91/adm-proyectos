@@ -1,8 +1,11 @@
 const Proyectos = require('../models/Proyectos');
+const slug = require('slug');
 
-exports.proyectosHome = (req, res) => {
+exports.proyectosHome = async (req, res) => {
+    const proyectos = await Proyectos.findAll();
     res.render("index", {
-        nombrePagina: "Proyectos"
+        nombrePagina: "Proyectos",
+        proyectos
     });
 }
 
@@ -28,7 +31,13 @@ exports.nuevoProyecto = async (req, res) => {
             errores
         })
     } else {
-        const proyecto = await Proyectos.create({ nombre });
-        res.redirect('/');
+
+        try {
+            const proyecto = await Proyectos.create({ nombre });
+            res.redirect('/');
+        } catch (error) {
+            console.info(error.errors);
+            res.send(error.errors);
+        }
     }
 }
