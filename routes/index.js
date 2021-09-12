@@ -20,9 +20,13 @@ module.exports = function () {
     // Actualizar el Proyecto
     router.get('/proyecto/editar/:id', proyectosController.formularioEditar);
 
+    // Actualizar proyecto
     router.post('/nuevo-proyecto/:id',
         body('nombre').not().isEmpty().trim().escape(),
         proyectosController.actualizarProyecto);
+
+    // Eliminar proyecto
+    router.delete('/proyectos/:url', proyectosController.eliminarProyecto)
 
     return router
 }
