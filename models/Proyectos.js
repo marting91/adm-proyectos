@@ -22,6 +22,11 @@ const Proyectos = db.define('proyeectos', {
             const url = slug(proyecto.nombre);
 
             proyecto.url = `${url}-${shortid.generate()}`;
+        },
+        beforeUpdate(proyecto) {
+            const url = slug(proyecto.nombre);
+
+            proyecto.url = `${url}-${shortid.generate()}`;
         }
     }
 });

@@ -9,6 +9,7 @@ const db = require('./config/db');
 // Importo el modelo
 require('./models/Proyectos');
 
+// Con sync() crea las tablas en la BD a partir del modelo (por eso se importa antes)
 db.sync()
     .then(() => console.log("Conectado a la BD"))
     .catch(error => console.log(error))
