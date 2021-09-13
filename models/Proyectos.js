@@ -3,17 +3,17 @@ const db = require('../config/db');
 const slug = require('slug');
 const shortid = require('shortid');
 
-const Proyectos = db.define('proyeectos', {
+const Proyectos = db.define('proyectos', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     nombre: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING(100)
     },
     url: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         unique: true
     }
 }, {
